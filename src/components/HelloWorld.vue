@@ -1,8 +1,8 @@
 <template>
   <section>
-    <h1>yo</h1>
+    <GoogleMap name="example"></GoogleMap>
     <ul>
-      <li v-for="bike in bikeData">
+      <li v-for="(bike, index) in bikeData" v-bind:key="index">
         {{bike.commonName}} | <strong> {{bike.lat}}, {{bike.lon}} </strong>
       </li>
     </ul>
@@ -12,12 +12,13 @@
 
 <script>
 import axios from 'axios'
+import GoogleMap from './GoogleMap'
 
 export default {
   name: 'HelloWorld',
   data () {
-  return {
-      msg: 'yo',
+    return {
+      // msg: 'yo',
       bikeData: []
     }
   },
@@ -28,8 +29,10 @@ export default {
     })
       .then(res => this.bikeData = res.data)
       .catch(err => console.log(err))
+  },
+  components: {
+    GoogleMap
   }
-
 }
 </script>
 
