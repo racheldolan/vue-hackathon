@@ -1,11 +1,11 @@
 <template>
   <section>
     <GoogleMap v-bind:bikeData="bikeData" name="example"></GoogleMap>
-    <ul>
+    <!-- <ul>
       <li v-for="(bike, index) in bikeData" v-bind:key="index">
         {{bike.commonName}} | <strong> {{bike.lat}}, {{bike.lon}} </strong>
       </li>
-    </ul>
+    </ul> -->
 
   </section>
 </template>
@@ -35,8 +35,8 @@ export default {
       url: 'https://api.tfl.gov.uk/bikepoint'
     })
       .then(res => {
-        console.log(res.data);
-        this.bikeData = res.data;
+        // console.log(res.data)
+        this.bikeData = res.data
       })
       .catch(err => console.log(err))
   },

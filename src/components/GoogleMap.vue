@@ -3,29 +3,36 @@
 </template>
 
 <script>
+/* global google */
 export default{
   name: 'GoogleMap',
   props: ['bikeData'],
-  data() {
+  data () {
     return {
-      mapName: this.name + "-map",
+      mapName: this.name + '-map'
     }
   },
-  mounted() {
+  mounted () {
     const element = document.getElementById(this.mapName)
     const options = {
       zoom: 13,
-      center: new google.maps.LatLng(51.501527,-0.1921837)
+      center: new google.maps.LatLng(51.501527, -0.1921837)
     }
-    const map = new google.maps.Map(element, options);
+    const map = new google.maps.Map(element, options)
 
-    this.bikeData.forEach((coord) => {
-      const position = new google.maps.LatLng(coord.lat, coord.lon);
+    this.bikeData.forEach((data) => {
+      const position = new google.maps.LatLng(data.lat, data.lon)
       const marker = new google.maps.Marker({
         position,
-        map
-      });
-    });
+        map,
+        title: data.commonName
+      })
+
+      // marker.addListener('click', function () {
+      //   map.setZoom(15)
+      //   // marker.title = 'Another name'
+      // })
+    })
   }
 }
 </script>
