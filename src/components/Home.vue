@@ -6,12 +6,15 @@
         <GoogleMap :bikeData="bikeData" :getLocationData="getLocationData" name="example"></GoogleMap>
       </div>
       <div class="column is-one-third-desktop">
-        <div class="info-box content" v-if="locationData.bikesCount >-1">
-          <h1 class="title">{{locationData.name}}</h1>
-          <ul>
-            <li>Available bikes: {{locationData.bikesCount}}</li>
-            <li>Available docks: {{locationData.emptyDocks}}</li>
-          </ul>
+        <div class="info-box content">
+          <p class="subtitle" v-if="!locationData.name">Click a marker for location-specific information.</p>
+          <div v-if="locationData.bikesCount >-1">
+            <h1 class="title">{{locationData.name}}</h1>
+            <ul>
+              <li>Available bikes: {{locationData.bikesCount}}</li>
+              <li>Available docks: {{locationData.emptyDocks}}</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -73,8 +76,6 @@ export default {
 <style scoped>
 
 .info-box {
-  /* width: 200px; */
   height: 200px;
-  border: 1px solid red;
 }
 </style>
