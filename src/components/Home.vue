@@ -1,6 +1,8 @@
 <template>
   <section class="container">
     <h1 class="title is-1">Bike Checkr App</h1>
+    <hr />
+    <h5 class="title is-5">Filter for available bikes only? <span @click="filterAvailableBikes">Yes</span></h5>
     <div class="columns">
       <div class="column is-two-thirds-desktop">
         <GoogleMap :bikeData="bikeData" :getLocationData="getLocationData" name="example"></GoogleMap>
@@ -72,4 +74,13 @@ export default {
 .info-box {
   height: 200px;
 }
+
+span {
+  cursor: pointer;
+  background-color: orange;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10%;
+}
+
 </style>
