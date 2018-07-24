@@ -1,45 +1,40 @@
 <template>
-  <section>
-  <div class="map" :id="mapName"></div>
-</section>
+  <div class="map"></div>
 </template>
 
 <script>
 /* global google */
 export default{
   name: 'GoogleMap',
-  props: ['bikeData', 'getLocationData'],
-  data () {
-    return {
-      mapName: this.name + '-map'
-    }
-  },
+  props: ['bikeData', 'getLocationData', 'bikeToggle'],
   mounted () {
-    const element = document.getElementById(this.mapName)
     const options = {
       zoom: 12.4,
       center: new google.maps.LatLng(51.501527, -0.141099)
     }
-    const map = new google.maps.Map(element, options)
+    this.map = new google.maps.Map(this.$el, options)
 
     this.infoWindow = new google.maps.InfoWindow()
 
     const trafficLayer = new google.maps.TrafficLayer()
-    trafficLayer.setMap(map)
+    trafficLayer.setMap(this.map)
+  },
+  watch: {
+    bikeData() {
+      this.bikeData.forEach((data) => {
+        const position = new google.maps.LatLng(data.lat, data.lon)
+        const marker = new google.maps.Marker({
+          position,
+          map: this.map,
+          title: data.commonName
+        })
+        marker.addListener('click', () => {
+          this.map.setZoom(15)
+          this.getLocationData(data.id)
+        })
 
-    this.bikeData.forEach((data) => {
-      const position = new google.maps.LatLng(data.lat, data.lon)
-      const marker = new google.maps.Marker({
-        position,
-        map,
-        title: data.commonName
       })
-
-      marker.addListener('click', () => {
-        // map.setZoom(15)
-        this.getLocationData(data.id)
-      })
-    })
+    }
   }
 }
 </script>
