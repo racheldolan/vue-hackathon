@@ -1,6 +1,9 @@
 <template>
   <div id="app">
     <router-view/>
+    <footer>
+      <p>Made by <a href="#">Rach</a> &amp; <a href="#">Steve</a></p>
+    </footer>
   </div>
 </template>
 

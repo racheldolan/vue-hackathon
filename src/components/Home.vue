@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1 class="title">Bike Checkr App</h1>
+    <h1 class="title is-1">Bike Checkr App</h1>
     <div class="columns">
       <div class="column is-two-thirds-desktop">
         <GoogleMap :bikeData="bikeData" :getLocationData="getLocationData" name="example"></GoogleMap>
@@ -32,13 +32,7 @@ export default {
       locationData: {},
       // msg: 'yo',
       bikeData: [],
-      markerCoordinates: [{
-        latitude: 51.501527,
-        longitude: -0.1921837
-      }, {
-        latitude: 51.505874,
-        longitude: -0.1838486
-      }]
+      markerCoordinates: []
     }
   },
   methods: {

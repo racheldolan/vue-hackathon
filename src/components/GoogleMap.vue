@@ -17,8 +17,8 @@ export default{
   mounted () {
     const element = document.getElementById(this.mapName)
     const options = {
-      zoom: 13,
-      center: new google.maps.LatLng(51.501527, -0.1921837)
+      zoom: 12.4,
+      center: new google.maps.LatLng(51.501527, -0.141099)
     }
     const map = new google.maps.Map(element, options)
 

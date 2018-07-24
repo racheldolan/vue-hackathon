@@ -1,1 +1,18 @@
 @import '~bulma/bulma';
+
+footer {
+  margin-top: 20px;
+  background-color: rgba(0,128,128, .8);
+  padding: 20px 0;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+
+  p {
+    text-align: center;
+
+    a:link, a:visited {
+      color: white;
+    }
+  }
+}
