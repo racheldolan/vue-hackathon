@@ -60,8 +60,8 @@ export default {
 
       this.count = 0
       this.filteredBikeDate = this.bikeData.filter(bikeLocation => {
-        if(parseInt(bikeLocation.additionalProperties[6].value, 2) > 0) {
-          this.count ++
+        if (parseInt(bikeLocation.additionalProperties[6].value, 2) > 0) {
+          this.count++
         }
         return parseInt(bikeLocation.additionalProperties[6].value, 2) > 0
       })

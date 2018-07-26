@@ -20,7 +20,7 @@ export default{
     trafficLayer.setMap(this.map)
   },
   watch: {
-    bikeData() {
+    bikeData () {
       this.bikeData.forEach((data) => {
         const position = new google.maps.LatLng(data.lat, data.lon)
         const marker = new google.maps.Marker({
@@ -32,7 +32,6 @@ export default{
           this.map.setZoom(15)
           this.getLocationData(data.id)
         })
-
       })
     }
   }
